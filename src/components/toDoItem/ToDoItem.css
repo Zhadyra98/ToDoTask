@@ -24,7 +24,7 @@ input[type="text"] {
     outline: none;
     width: 100%;
     height: 100%;
-    color:#e7e7e7;
+    color:#636363;
 
 }
 .todo-input{
@@ -47,4 +47,39 @@ input[type="text"] {
     width: 20px;
     height: 20px;
     margin: 0 12px;
+}
+::placeholder{
+    color:#e7e7e7;
+}
+.todo-panel{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 12px;
+}
+.todo-panel > span {
+    margin-left: 12px;
+    padding: 5px;
+}
+.inner_buttons > button {
+    padding: 5px;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 12px;
+}
+.todo-panel > button {
+    padding: 5px;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 12px;
+}
+button.active{
+    border: 1px solid #eadbdb;
 }

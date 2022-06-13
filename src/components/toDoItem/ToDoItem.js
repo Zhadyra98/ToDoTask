@@ -1,10 +1,11 @@
 import './ToDoItem.css';
+import './CheckBox.css';
 
 const ToDoItem = ({id, name, isChecked, setCheckedToDo}) => {
     return (
         <div className="todo-item" onClick={() => setCheckedToDo(id)}>
-            <input type='checkbox' checked={isChecked}/>
-            <span className="name">{name}</span>
+            <input type='checkbox' className='checkbox' checked={isChecked}/>
+            <label><span className="name">{name}</span></label>
         </div>
     )
 }

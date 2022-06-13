@@ -9,7 +9,7 @@ const ToDo = () => {
         {
             id:0,
             name: "Learn JS",
-            isChecked: true
+            isChecked: false
         }
     ]);
 
@@ -27,6 +27,11 @@ const ToDo = () => {
        setTodoList(newArray)
         
     }
+
+    // const onAll = () => {
+
+    // }
+
     return (
         <>
         <h1>todos</h1>
@@ -47,6 +52,15 @@ const ToDo = () => {
                     isChecked={todo.isChecked}
                     setCheckedToDo={toggleCheckedToDo}/>
             ))}
+            <div className="todo-panel">
+                    <span>{todoList.length} items left</span>
+                <div className="inner_buttons">
+                    <button className="active">All</button>
+                    <button>Active</button>
+                    <button>Completed</button>
+                </div>
+                    <button>Clear completed</button>
+            </div>
         </div>
         </>
     )
