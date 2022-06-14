@@ -1,14 +1,17 @@
 import { useState } from "react"
 import Filter from '../filter/Filter';
 import ToDo from '../toDoList/Todo';
-import '../toDoItem/ToDoItem.css';
+import '../../styles/ToDoItem.css';
+
 import downArrow from '../../resources/down-arrow.svg';
+
+let maxId=2;
 
 const App = () => {
   const [name, setName] = useState('');
   const [data, setData] = useState([
-    {id:0, name: "Learn JS", isChecked: false},
-    {id:1, name: "Learn React", isChecked:true}
+    {id:1, name: "Learn JS", isChecked: false},
+    {id:2, name: "Learn React", isChecked:true}
   ]);
 
   const [filter, setFilter] = useState('All');
@@ -25,10 +28,11 @@ const App = () => {
   }
 
   const onKeyPressNameHandler = e => {
-    if(e.key === 'Enter'){
+    if(e.key === 'Enter' && name){
+        maxId+=1;
         e.preventDefault();
         setData(prev => [...prev, 
-            {id: data.length, name: name, isChecked:false}])
+            {id: maxId, name: name, isChecked:false}])
         setName('');
     }
   }
@@ -44,6 +48,10 @@ const App = () => {
 
   const onFilterSelect = (filter) => {
     setFilter(filter);
+  }
+
+  const onClear = () => {
+    setData(prev => prev.filter(item => !item.isChecked))
   }
 
   return (
@@ -62,9 +70,9 @@ const App = () => {
           data={filterList(data, filter)}
           onToggleDone={onToggleDone}/>
         <div className="todo-panel">
-          <span>{data.length} items left</span>
+          <span>{data.filter(x => !x.isChecked).length} items left</span>
           <Filter filter ={filter} onFilterSelect2={onFilterSelect}/>
-          <button>Clear completed</button>
+          <button onClick={onClear}>Clear completed</button>
         </div>
         </div>
     </>

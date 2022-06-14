@@ -1,5 +1,5 @@
-import './ToDoItem.css';
-import './CheckBox.css';
+import '../../styles/ToDoItem.css';
+import '../../styles/CheckBox.css';
 
 const ToDoItem = ({name, onToggleDone, isChecked}) => {
     return (

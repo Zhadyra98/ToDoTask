@@ -1,6 +1,5 @@
-
 import ToDoItem from "../toDoItem/ToDoItem";
-import '../toDoItem/ToDoItem.css';
+import '../../styles/ToDoItem.css';
 
 
 const ToDo = ({data, onToggleDone}) => {
